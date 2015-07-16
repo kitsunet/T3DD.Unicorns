@@ -1,0 +1,51 @@
+# If you need more than just the "main" content area you can uncomment the snippet below. It will add a "sidebar" area
+# to your pages. You can add as many areas as you like, still only those that are rendered in your TypoScript and
+# Template are visible on your page.
+---
+#'TYPO3.Neos.NodeTypes:Page':
+#  childNodes:
+#    'sidebar':
+#      type: 'TYPO3.Neos:ContentCollection'
+
+'T3DD.Unicorns:UnicornHeadline':
+  abstract: FALSE
+  superTypes:
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos.NodeTypes:TitleMixin': TRUE
+    'TYPO3.Neos.NodeTypes:TextMixin': TRUE
+  ui:
+    label: 'Unicorn Headline'
+    inspector:
+      groups:
+        image:
+          label: 'image'
+          position: 5
+  properties:
+    text:
+      ui:
+       aloha:
+         placeholder: '<p>AWESOME UNICORN TEXT HERE</p>'
+         autoparagraph: TRUE
+         'format':
+           'u': TRUE
+    icon:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'wonderful icon'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'nodeInfo'
+          position: 400
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: 'Default'
+            values:
+              '':
+                label: ''
+              'service-one':
+                label: 'Clock'
+              'service-two':
+                label: 'bezier curve'
+              'service-tre':
+                label: 'tractor'
